@@ -1,0 +1,187 @@
+.learn-new-words,
+.review {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 280px;
+  height: 400px;
+  background-color: #1c1c1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.6s;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card .content.back {
+  transform: scaleX(-1);
+}
+
+.card h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button.secondary {
+  background-color: #2c2c2e;
+}
+
+.button.secondary:hover {
+  background-color: #3a3a3c;
+}
+
+.completion-message {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #2c2c2e;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  max-width: 280px;
+}
+
+.nav-icon {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Toast styles */
+.Toastify__toast {
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #000000;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(45deg, #ff6ec4, #c2426c, #9b3c7d, #753a88);
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(
+    45deg,
+    #d62976,
+    #e14d2a,
+    #ff5722,
+    #ff8f00,
+    #ffca28
+  );
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #fabc3c,
+    #f6d365,
+    #fffc67,
+    #ffe900
+  );
+}
+
+/* ReviewWords specific styles */
+.progress-bar-container {
+  width: 100%;
+  max-width: 280px;
+  background-color: #2c2c2e;
+  padding: 3px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  display: block;
+  height: 22px;
+  background-color: #007aff;
+  border-radius: 3px;
+  transition: width 500ms ease-in-out;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
