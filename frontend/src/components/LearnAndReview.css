@@ -5,15 +5,15 @@
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
+  /* color: white; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .card {
-  width: 280px;
-  height: 400px;
+  width: 350px;
+  height: 420px;
   background-color: #1c1c1e;
   border: 1px solid #333;
   border-radius: 10px;
@@ -117,11 +117,84 @@
   margin-right: 15px;
 }
 
-.nav-title {
+/* .nav-title {
   font-size: 18px;
   font-weight: 500;
+} */
+
+/* .header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  background-color: #1c1c1e;
 }
 
+.nav-group {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #8e8e93;
+  transition: all 0.2s ease;
+}
+
+.nav-item-active {
+  color: white;
+  background-color: #2c2c2e;
+}
+
+.nav-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+} */
+
+.header {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  /* background-color: #1c1c1e; */
+}
+
+.left-nav {
+  position: absolute;
+  left: 20px;
+}
+
+.center-nav {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #8e8e93;
+  transition: all 0.2s ease;
+}
+
+.nav-item-active {
+  background-color: #2c2c2e;
+  color: white;
+}
+
+.nav-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: inherit;
+}
 /* Toast styles */
 .Toastify__toast {
   border-radius: 10px;
@@ -157,31 +230,31 @@
 }
 
 /* ReviewWords specific styles */
-.progress-bar-container {
-  width: 100%;
-  max-width: 280px;
-  background-color: #2c2c2e;
-  padding: 3px;
-  border-radius: 5px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-  position: relative;
+.progress-container {
+  width: 280px; /* Такая же ширина как у карточки */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 20px;
 }
 
-.progress-bar {
-  display: block;
-  height: 22px;
-  background-color: #007aff;
-  border-radius: 3px;
-  transition: width 500ms ease-in-out;
+.progress-text {
+  color: #8e8e93;
+  font-size: 14px;
 }
 
-.progress-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background-color: #2c2c2e;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #007aff;
+  border-radius: 2px;
+  transition: width 500ms ease-in-out;
 }

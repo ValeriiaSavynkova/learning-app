@@ -7,7 +7,9 @@ const updateReviewRouter = require('./updateReview.js');
 const firstRenderRouter = require('./firstRender.js');
 const todayWordsRouter = require('./todayWords.js');
 const todayCountsRouter = require('./todayCounts.js');
+const streaksRouter = require('./streaks.js');
 const decreaseReviewCountRouter = require('./decreaseReviewCount.js');
+const extraExamplesRouter = require('./getExtraExamples.js');
 const router = express.Router();
 
 router.use('/api/new-words', newWordsRouter);
@@ -18,6 +20,8 @@ router.use('/api/review-update', updateReviewRouter);
 router.use('/api/first-render', firstRenderRouter);
 router.use('/api/today-words', todayWordsRouter);
 router.use('/api/today-counts', todayCountsRouter);
+router.use('/api/streaks', streaksRouter);
 router.use('/api/reviewcount-decrease', decreaseReviewCountRouter);
+router.use('/api/extra-examples', extraExamplesRouter);
 
 module.exports = router;

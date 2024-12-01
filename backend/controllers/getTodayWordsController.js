@@ -5,9 +5,10 @@ const getTodayWordsHandler = async (req, res) => {
   try {
     const { getFirstRender, getMemorizedWordsCount } = await startService();
     const words = await getFirstRender(req.body.date);
-    console.log(words.learn);
+    console.log(words);
+    // console.log(words.learn);
     const currentIndex = await getMemorizedWordsCount(req.body.date);
-    console.log(currentIndex);
+    //  console.log(currentIndex);
     res.send({ words: words.learn, currentIndex: currentIndex });
   } catch (error) {
     console.error('Error:', error);

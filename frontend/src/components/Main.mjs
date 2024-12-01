@@ -1,10 +1,29 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Main.css';
 import Navigation from './Navigation.mjs';
-
-const currentStreak = 0;
-const bestStreak = 0;
+import origin from '../config/config.mjs';
 
 const Main = () => {
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [bestStreak, setBestStreak] = useState(0);
+
+  useEffect(() => {
+    console.log('useEffect');
+    getStreaks();
+  }, []);
+
+  const getStreaks = async () => {
+    try {
+      const response = await axios.get(`${origin}/api/streaks`);
+      console.log(response.data);
+      setCurrentStreak(response.data.currentStreak);
+      setBestStreak(response.data.bestStreak);
+    } catch (error) {
+      console.error('Error fetching streaks:', error);
+    }
+  };
+
   return (
     <div className="main-page">
       <div className="main-header">

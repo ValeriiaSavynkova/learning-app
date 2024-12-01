@@ -17,6 +17,7 @@ const startService = async () => {
   await client.connect();
   return {
     addWord,
+    addManyWords,
     getWords,
     deleteWord,
     updateWord,
@@ -38,6 +39,7 @@ const startService = async () => {
     deleteYesterday,
     getReviewForDayCount,
     decreaseReviewCount,
+    getStreaks,
     // updateToday,
   };
 };
@@ -50,6 +52,24 @@ const addWord = async (word) => {
   return id;
 };
 
+const addManyWords = async (words) => {
+  for await (const wordData of words) {
+    const { word, form, meaning, examples } = wordData;
+
+    if (!word || !meaning || !Array.isArray(examples)) {
+      console.error('Invalid word data:', wordData);
+      continue;
+    }
+
+    await wordsCollection.insertOne({
+      word: word,
+      form: form,
+      meaning: meaning,
+      examples: examples,
+    });
+  }
+  console.log('done');
+};
 const addWordToCollectionToUser = async (word, date) => {
   await user1Collection.insertOne(word);
   await user1Collection.updateOne(
@@ -72,6 +92,13 @@ const addWordToCollectionToUser = async (word, date) => {
 
 const getWords = async () => {
   return await wordsCollection.find().toArray();
+};
+
+const getStreaks = async () => {
+  return await user1Collection.findOne(
+    { statistics: { $exists: true } },
+    { projection: { _id: 0 } }
+  );
 };
 
 // it is also used in getTodayWordsHandler
@@ -250,7 +277,7 @@ const getNewWordsForDay = async (
 
       { $match: { idToString: { $nin: resetWords.resetWordsIds } } },
 
-      { $project: { word: 1, meaning: 1 } },
+      { $project: { word: 1, meaning: 1, examples: 1, form: 1 } },
 
       { $limit: limit },
     ])
@@ -279,9 +306,10 @@ const deleteWord = async (id) => {
 };
 
 const deleteWords = async () => {
-  return await user1Collection.deleteMany({
+  return await wordsCollection.deleteMany({
     word: { $exists: true },
     meaning: { $exists: true },
+    // examples: { $exists: true },
   });
 };
 

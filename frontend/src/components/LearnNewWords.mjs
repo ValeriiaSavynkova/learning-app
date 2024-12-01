@@ -134,19 +134,49 @@ function LearnNewWords() {
 
   return (
     <div className="learn-new-words">
+      <div className="header">
+        <div className="left-nav">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `nav-item ${isActive ? 'nav-item-active' : ''}`
+            }
+          >
+            <h2 className="nav-title">Home</h2>
+          </NavLink>
+        </div>
+        <div className="center-nav">
+          <NavLink
+            to="/new-words"
+            className={({ isActive }) =>
+              `nav-item ${isActive ? 'nav-item-active' : ''}`
+            }
+          >
+            <h2 className="nav-title">Learn new words</h2>
+          </NavLink>
+          <NavLink
+            to="/review"
+            className={({ isActive }) =>
+              `nav-item ${isActive ? 'nav-item-active' : ''}`
+            }
+          >
+            <h2 className="nav-title">Review words</h2>
+          </NavLink>
+        </div>
+      </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : currentWordIndex < words.length ? (
         <>
-          <div>
-            <p>Learn new words</p>
-          </div>
           <ToastContainer />
           <Card
             word={currentWord?.word}
             meaning={currentWord?.meaning}
+            form={currentWord?.form}
+            examples={currentWord?.examples}
             id={currentWord?._id}
           />
+
           <div className="button-container">
             <button
               className="button"
@@ -171,7 +201,7 @@ function LearnNewWords() {
           <p className="completion-message">Nice job!</p>
           <NavLink to="/" className="nav-link">
             <span className="nav-icon">🏠</span>
-            <div className="nav-title">Main</div>
+            <div className="nav-title">Home</div>
           </NavLink>
           <NavLink to="/review" className="nav-link">
             <span className="nav-icon">↻</span>

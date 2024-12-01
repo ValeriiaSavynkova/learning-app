@@ -45,15 +45,15 @@
 }
 
 .streak-title {
-  font-size: 14px;
-  color: #8e8e93;
+  font-size: 16px;
+  color: white;
   margin-bottom: 5px;
 }
 
 .streak-value {
-  font-size: 24px;
+  font-size: 14px;
   font-weight: bold;
-  color: white;
+  color: #8e8e93;
 }
 
 .memorized-today {

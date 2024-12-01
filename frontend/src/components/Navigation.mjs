@@ -35,7 +35,7 @@ const Navigation = () => {
         <NavLink to="/new-words" className="nav-item">
           <span className="nav-icon">+</span>
           <div>
-            <div className="nav-title">Learn new words</div>
+            <div className="main-nav-title">Learn new words</div>
             <div className="nav-subtitle">
               Memorized today: {learnedWords} of 5
             </div>
@@ -44,7 +44,7 @@ const Navigation = () => {
         <NavLink to="/review" className="nav-item">
           <span className="nav-icon">↻</span>
           <div>
-            <div className="nav-title">Review words</div>
+            <div className="main-nav-title">Review words</div>
             <div className="nav-subtitle">
               Words to review: {wordsForReview}
             </div>

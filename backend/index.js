@@ -19,10 +19,10 @@ const dailyUpdate = async () => {
   await addNewDay(todayDate());
 };
 
-schedule.scheduleJob('0 0 * * *', dailyUpdate);
+//schedule.scheduleJob('0 0 * * *', dailyUpdate);
 
-// const date = new Date(Date.now() + 60 * 1000);
-// schedule.scheduleJob(date, dailyUpdate);
+const date = new Date(Date.now() + 60 * 1000);
+schedule.scheduleJob(date, dailyUpdate);
 
 app.use(
   cors({
