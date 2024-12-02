@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import origin from '../config/config.mjs';
+import TextToSound from './TextToSound.mjs';
 
 import './LearnAndReview.css';
 
@@ -55,6 +56,7 @@ function Card({ word, meaning, form, examples, id }) {
           </p>
         ) : (
           <>
+            <TextToSound word={word} />
             <p>
               <strong>{`${word} ${partOfForm}`}</strong>
             </p>
